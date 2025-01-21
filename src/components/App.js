@@ -8,14 +8,14 @@ const App = () => {
     fetch("https://dummyjson.com/products")
     .then(res=>res.json())
     .then(data=>setData(data))
-    .catch(err=>setData("Error"))
+    .catch(err=>setData("No data found"))
   },[])
-  if(data==="Error") return <p>Error Occured</p>
+  if(data==="Error") return <p>No data found</p>
   if(!data) return <h1>Loading...</h1>
   return (
     <div>
         {/* Do not remove the main div */}
-      <pre>{JSON.stringify(data, null 2)}</pre>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   )
 }
